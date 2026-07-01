@@ -23,6 +23,13 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
   return (
     <div className="bg-card border-2 border-primary rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
       <div className="text-center mb-6">
+        {pkg.logo && (
+          <img
+            src={pkg.logo}
+            alt={pkg.name}
+            className="h-16 w-auto mx-auto mb-4 object-contain"
+          />
+        )}
         <h3 className="text-xl font-bold text-foreground mb-2">{pkg.name}</h3>
         <p className="text-sm text-muted-foreground">{pkg.subtitle}</p>
       </div>

@@ -38,6 +38,7 @@ export const packages: Package[] = [
     id: "strong",
     name: "اشتراكات سترونق 4K",
     subtitle: "أعلى دقة بث 4K حقيقية",
+    logo: "/manus-storage/strong4k_0b9f2076.jpg",
     prices: {
       '3': 80,
       '6': 130,
@@ -63,6 +64,7 @@ export const packages: Package[] = [
     id: "everest",
     name: "سيرفر إيفرست",
     subtitle: "الاشتراك الأفضل",
+    logo: "/manus-storage/everest_011c17b2.jpg",
     prices: {
       '3': 80,
       '6': 130,
@@ -88,6 +90,7 @@ export const packages: Package[] = [
     id: "hulk",
     name: "اشتراكات هولك",
     subtitle: "الباقة العملاقة للأفلام والمباريات",
+    logo: "/manus-storage/hulk_e2fb0917.jpg",
     prices: {
       '3': 100,
       '6': 150,
@@ -112,6 +115,7 @@ export const packages: Package[] = [
     id: "falcon",
     name: "اشتراكات فالكون الأصلي",
     subtitle: "الاشتراك العصري الغني عن التعريف",
+    logo: "/manus-storage/falcon_c0d43a65.jpg",
     prices: {
       '3': 130,
       '6': 200,
@@ -137,6 +141,7 @@ export const packages: Package[] = [
     id: "vulture",
     name: "اشتراكات فولتشر",
     subtitle: "الاشتراك الترفيهي المتميز",
+    logo: "/manus-storage/vulture_e7b78699.jpg",
     prices: {
       '3': 69,
       '6': 99,
@@ -161,6 +166,7 @@ export const packages: Package[] = [
     id: "smarters",
     name: "تطبيق Smarters Pro",
     subtitle: "التطبيق الأشهر والأسهل تشغيلاً",
+    logo: "/manus-storage/smarters-pro_5dd5f9b4.jpg",
     prices: {
       '3': 0,
       '6': 0,
