@@ -10,9 +10,6 @@ interface PackageCardProps {
 export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
   const { convertPrice } = useCurrency();
 
-  // Compact 2-Column Grid Layout
-  // Each card shows: Logo, Name, and all durations in a compact horizontal layout
-  
   const durations: Array<{ key: "3" | "6" | "12"; label: string }> = [
     { key: "3", label: "3 شهور" },
     { key: "6", label: "6 شهور" },
@@ -20,26 +17,27 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
   ];
 
   return (
-    <div className="bg-card border-2 border-primary rounded-xl p-4 hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
-      {/* Header with Logo and Name */}
-      <div className="text-center mb-4 pb-4 border-b border-border">
+    <div className="bg-card border-2 border-primary rounded-lg p-3 hover:shadow-lg transition-shadow duration-300">
+      {/* Header: Logo + Name (Horizontal) */}
+      <div className="flex items-center gap-3 mb-3 pb-3 border-b border-border">
         {pkg.logo && (
           <img
             src={pkg.logo}
             alt={pkg.name}
-            className="h-12 w-auto mx-auto mb-2 object-contain"
+            className="h-10 w-10 object-contain flex-shrink-0"
           />
         )}
-        <h3 className="text-lg font-bold text-foreground">{pkg.name}</h3>
+        <div className="flex-1 min-w-0">
+          <h3 className="text-sm font-bold text-foreground truncate">{pkg.name}</h3>
+        </div>
       </div>
 
-      {/* Pricing Options - Compact Layout */}
-      <div className="space-y-2 flex-1">
+      {/* Pricing Grid - 3 columns */}
+      <div className="grid grid-cols-3 gap-2">
         {durations.map(({ key, label }) => {
           const price = pkg.prices[key];
           let originalPrice: number | undefined;
           
-          // Get original price based on duration
           if (key === "3") {
             originalPrice = pkg.originalPrice3;
           } else if (key === "6") {
@@ -54,24 +52,27 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
           return (
             <div
               key={key}
-              className="flex items-center justify-between p-2 bg-secondary rounded-lg border border-border hover:border-primary transition-colors text-sm"
+              className="bg-secondary rounded-md border border-border p-2 text-center hover:border-primary transition-colors"
             >
-              <div className="text-right flex-1">
-                <p className="font-medium text-foreground">{label}</p>
-                {convertedOriginal && (
-                  <p className="text-xs text-muted-foreground line-through">
-                    {convertedOriginal.amount} {convertedOriginal.symbol}
-                  </p>
-                )}
-              </div>
-              <div className="text-left mx-2">
-                <p className="font-bold text-primary">
-                  {converted.amount} {converted.symbol}
+              {/* Duration Label */}
+              <p className="text-xs font-medium text-foreground mb-1">{label}</p>
+              
+              {/* Original Price (Strikethrough) */}
+              {convertedOriginal && (
+                <p className="text-xs text-muted-foreground line-through">
+                  {convertedOriginal.amount}
                 </p>
-              </div>
+              )}
+              
+              {/* Current Price */}
+              <p className="text-sm font-bold text-primary mb-1">
+                {converted.amount}
+              </p>
+              
+              {/* Select Button */}
               <Button
                 size="sm"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 text-xs px-2 py-1 h-auto"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-xs px-1 py-1 h-6"
                 onClick={() => onSelectPlan(pkg, key)}
               >
                 اختر
