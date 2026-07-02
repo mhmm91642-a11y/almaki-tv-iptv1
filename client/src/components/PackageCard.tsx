@@ -10,9 +10,8 @@ interface PackageCardProps {
 export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
   const { convertPrice } = useCurrency();
 
-  // Premium 2-Row Grid Layout
-  // Row 1: 12 months + 6 months
-  // Row 2: 3 months (centered)
+  // 2-Column Grid Layout with all durations
+  // Each card shows: Logo, Name, Duration, Price (with strikethrough original)
   
   const durations: Array<{ key: "3" | "6" | "12"; label: string }> = [
     { key: "12", label: "سنة كاملة" },
@@ -37,7 +36,17 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
       <div className="space-y-3">
         {durations.map(({ key, label }) => {
           const price = pkg.prices[key];
-          const originalPrice = key === "12" ? pkg.originalPrice12 : undefined;
+          let originalPrice: number | undefined;
+          
+          // Get original price based on duration
+          if (key === "3") {
+            originalPrice = pkg.originalPrice3;
+          } else if (key === "6") {
+            originalPrice = pkg.originalPrice6;
+          } else if (key === "12") {
+            originalPrice = pkg.originalPrice12;
+          }
+          
           const converted = convertPrice(price);
           const convertedOriginal = originalPrice ? convertPrice(originalPrice) : null;
 
@@ -48,9 +57,9 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
             >
               <div className="text-right flex-1">
                 <p className="text-sm font-medium text-foreground">{label}</p>
-                {originalPrice && (
+                {convertedOriginal && (
                   <p className="text-xs text-muted-foreground line-through">
-                    {convertedOriginal?.amount} {convertedOriginal?.symbol}
+                    {convertedOriginal.amount} {convertedOriginal.symbol}
                   </p>
                 )}
               </div>

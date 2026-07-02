@@ -8,6 +8,8 @@ export interface Package {
     '6': number;
     '12': number;
   };
+  originalPrice3?: number;
+  originalPrice6?: number;
   originalPrice12?: number;
   features: {
     channels: number;
@@ -162,7 +164,63 @@ export const packages: Package[] = [
       "دعم موثوق",
     ],
   },
-
+  // Top-Selling Premium Tier
+  {
+    id: "universe",
+    name: "Universe TV",
+    subtitle: "خدمة بث متميزة",
+    logo: "/manus-storage/universe_tv.jpg",
+    prices: {
+      '3': 100,
+      '6': 150,
+      '12': 250,
+    },
+    originalPrice3: 150,
+    originalPrice6: 200,
+    originalPrice12: 500,
+    features: {
+      channels: 12000,
+      movies: 40000,
+      series: 18000,
+    },
+    color: "#00D4FF",
+    benefits: [
+      "محتوى حصري",
+      "بث عالي الجودة",
+      "مكتبة ضخمة",
+      "دعم متقدم",
+      "تحديثات يومية",
+      "أداء مستقر",
+    ],
+  },
+  {
+    id: "alfa",
+    name: "Alfa TV",
+    subtitle: "تجربة بث احترافية",
+    logo: "/manus-storage/alfa_tv.jpg",
+    prices: {
+      '3': 90,
+      '6': 130,
+      '12': 190,
+    },
+    originalPrice3: 130,
+    originalPrice6: 180,
+    originalPrice12: 350,
+    features: {
+      channels: 11000,
+      movies: 35000,
+      series: 16000,
+    },
+    color: "#FF6B9D",
+    benefits: [
+      "جودة فائقة",
+      "محتوى متنوع",
+      "سرعة عالية",
+      "دعم 24/7",
+      "تفعيل سريع",
+      "ثبات مضمون",
+    ],
+  },
 ];
 
 // Legacy format (keep for backward compatibility)
