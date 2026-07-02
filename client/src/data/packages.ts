@@ -197,7 +197,7 @@ export const packages: Package[] = [
     id: "alfa",
     name: "Alfa TV",
     subtitle: "تجربة بث احترافية",
-    logo: "/manus-storage/RlyfUleIpM52_0c106d70.jpg",
+    logo: "/manus-storage/alfa-tv-logo_9fce1f0e.png",
     prices: {
       '3': 90,
       '6': 130,
