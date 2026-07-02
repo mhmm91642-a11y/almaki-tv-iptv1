@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export function GlobalFooter() {
   const whatsappNumber = "+966580928565";
-  const message = "أريد الاستفسار عن اشتراكات 9kpro";
+  const message = "أريد الاستفسار عن اشتراكات ALMAKI TV";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (
@@ -20,7 +20,7 @@ export function GlobalFooter() {
           </a>
           <div className="pt-6 border-t border-border">
             <p className="text-muted-foreground text-sm">
-              © 2026 9kpro TV. جميع الحقوق محفوظة.
+              © 2026 ALMAKI TV. جميع الحقوق محفوظة.
             </p>
           </div>
         </div>

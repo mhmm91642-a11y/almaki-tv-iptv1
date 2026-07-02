@@ -42,7 +42,7 @@ export default function Home() {
       <header className="sticky top-0 z-40 bg-secondary border-b-2 border-primary">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <h1 className="text-3xl font-bold text-primary">9kpro TV</h1>
+            <h1 className="text-3xl font-bold text-primary">ALMAKI TV</h1>
             <span className="text-muted-foreground">✨</span>
           </div>
 
@@ -62,13 +62,13 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-secondary to-background py-16 border-b-2 border-primary">
+      <section className="hero-smoke-animation py-16 border-b-2 border-primary">
         <div className="max-w-6xl mx-auto px-4 text-center space-y-6">
           <h2 className="text-4xl md:text-5xl font-bold text-primary">
             ارتق إلى قمة تجربة المشاهدة
           </h2>
           <p className="text-xl text-foreground max-w-2xl mx-auto">
-            مع 9kpro TV - أفضل اشتراكات IPTV في السعودية والخليج
+            مع ALMAKI TV - أفضل اشتراكات IPTV في السعودية والخليج
           </p>
           <p className="text-lg text-muted-foreground">
             بث مباشر بدون تقطيع | جودة 4K | أحدث الأفلام والمسلسلات
@@ -166,7 +166,7 @@ export default function Home() {
       <section className="py-16 bg-background">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-primary text-center mb-12">
-            لماذا تختار 9kpro TV؟
+            لماذا تختار ALMAKI TV؟
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
