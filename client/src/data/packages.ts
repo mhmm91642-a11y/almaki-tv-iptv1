@@ -40,9 +40,9 @@ export const packages: Package[] = [
     subtitle: "أعلى دقة بث 4K حقيقية",
     logo: "/manus-storage/strong4k_0b9f2076.jpg",
     prices: {
-      '3': 80,
-      '6': 130,
-      '12': 199,
+      '3': 100,
+      '6': 200,
+      '12': 300,
     },
     features: {
       channels: 10000,
