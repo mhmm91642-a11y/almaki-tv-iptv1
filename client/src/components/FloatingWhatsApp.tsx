@@ -1,6 +1,6 @@
 export function FloatingWhatsApp() {
-  const whatsappNumber = "+966580928565";
-  const message = "أريد الاستفسار عن اشتراكات 9kpro";
+  const whatsappNumber = "966592360612";
+  const message = "السلام عليكم، أنا مهتم بخدمات ALMAKI";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (

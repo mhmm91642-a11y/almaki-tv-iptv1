@@ -32,8 +32,8 @@ export default function Home() {
     setDrawerOpen(true);
   };
 
-  const whatsappNumber = "+966580928565";
-  const message = "ماهي العروض المتوفرة؟";
+  const whatsappNumber = "966592360612";
+  const message = "السلام عليكم، أنا مهتم بخدمات ALMAKI";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (

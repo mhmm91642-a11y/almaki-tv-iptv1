@@ -34,8 +34,8 @@ export function ProductDetailDrawer({
     "12": "سنة كاملة",
   }[duration];
 
-  const whatsappNumber = "+966580928565";
-  const message = `مرحباً 9kpro TV، أود الاشتراك في الباقة التالية:
+  const whatsappNumber = "966592360612";
+  const message = `مرحباً ALMAKI، أود الاشتراك في الباقة التالية:
 🔹 السيرفر: ${pkg.name}
 ⏱️ المدة: ${durationLabel}
 💰 السعر: ${converted.amount} ${converted.symbol}
