@@ -68,7 +68,7 @@ export default function Home() {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   // Fade in refs for different sections
-  const packagesRef = useFadeInOnScroll();
+  const packagesRef = useRef<HTMLDivElement>(null);
   const linksRef = useFadeInOnScroll();
   const whyChooseRef = useFadeInOnScroll();
 
@@ -143,12 +143,35 @@ export default function Home() {
             بث مباشر بدون تقطيع | جودة 4K | أحدث الأفلام والمسلسلات
           </p>
 
-          {/* CTA Button - Enhanced */}
-          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-block">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-8 text-xl font-bold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl hover:shadow-primary/50">
-              تواصل معنا الآن
-            </Button>
-          </a>
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center gap-8 py-4 text-center">
+            <div>
+              <div className="text-3xl font-bold text-primary">50,000+</div>
+              <p className="text-muted-foreground text-sm">عميل راضي</p>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-primary">⭐ 4.9/5</div>
+              <p className="text-muted-foreground text-sm">من التقييمات</p>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-primary">24/7</div>
+              <p className="text-muted-foreground text-sm">دعم فني</p>
+            </div>
+          </div>
+
+          {/* CTA Buttons - Primary + Secondary */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button onClick={() => packagesRef.current?.scrollIntoView({ behavior: 'smooth' })} className="inline-block">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-8 text-lg font-bold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl hover:shadow-primary/50">
+                عرض الباقات
+              </Button>
+            </button>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-block">
+              <Button className="bg-green-600 text-white hover:bg-green-700 px-10 py-8 text-lg font-bold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl hover:shadow-green-600/50">
+                تواصل معنا الآن
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -187,7 +210,7 @@ export default function Home() {
                   </p>
                 </div>
                 <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  اعرف المزيد
+                  ابدأ التفعيل الآن ⚡
                 </Button>
               </div>
             </LinkButton>
@@ -204,7 +227,7 @@ export default function Home() {
                   </p>
                 </div>
                 <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  اعرف المزيد
+                  ابدأ التفعيل الآن ⚡
                 </Button>
               </div>
             </LinkButton>
@@ -221,7 +244,7 @@ export default function Home() {
                   </p>
                 </div>
                 <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  اعرف المزيد
+                  ابدأ التفعيل الآن ⚡
                 </Button>
               </div>
             </LinkButton>

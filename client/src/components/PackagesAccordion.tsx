@@ -30,7 +30,7 @@ export function PackagesAccordion({
             onClick={() => toggleAccordion(index)}
             className="w-full px-4 md:px-6 lg:px-8 py-5 md:py-6 lg:py-7 flex items-center justify-between hover:bg-secondary/50 transition-colors duration-200"
           >
-            {/* Logo + Name */}
+            {/* Logo + Name + Price */}
             <div className="flex items-center gap-4 md:gap-5 lg:gap-6 flex-1 min-w-0">
               {pkg.logo && (
                 <img
@@ -52,19 +52,33 @@ export function PackagesAccordion({
               </div>
             </div>
 
-            {/* Chevron Icon */}
-            <ChevronDown
-              className={`text-primary flex-shrink-0 ml-6 transition-transform duration-300 ${
-                expandedIndex === index ? "rotate-180" : ""
-              }`}
-              size={24}
-            />
+            {/* Price Preview + Chevron */}
+            <div className="flex items-center gap-4 md:gap-6 flex-shrink-0">
+              <div className="text-right hidden sm:block">
+                <p className="text-xs md:text-sm text-muted-foreground">من</p>
+                <p className="text-lg md:text-2xl font-bold text-primary">
+                  {pkg.prices["3"].toString().split(" ")[0]}
+                </p>
+              </div>
+              <ChevronDown
+                className={`text-primary flex-shrink-0 transition-transform duration-300 ${
+                  expandedIndex === index ? "rotate-180" : ""
+                }`}
+                size={24}
+              />
+            </div>
           </button>
 
           {/* Accordion Content - Animated */}
           {expandedIndex === index && (
             <div className="animate-in fade-in slide-in-from-top-2 duration-300">
               <div className="px-4 md:px-6 lg:px-8 py-6 md:py-8 lg:py-10 border-t-2 border-primary/30 bg-secondary/30">
+                {/* Guarantee Badge */}
+                <div className="mb-6 p-3 md:p-4 bg-green-900/20 border border-green-600/30 rounded-lg text-center">
+                  <p className="text-sm md:text-base text-green-400 font-semibold">
+                    ✓ ضمان استرجاع المال 30 يوم | لا توجد رسوم إضافية
+                  </p>
+                </div>
                 {/* Pricing Grid - 3 columns */}
                 <div className="grid grid-cols-3 gap-3 md:gap-5 lg:gap-6">
                   {/* 3 Months */}

@@ -35,6 +35,16 @@ export function FAQSection() {
       answer:
         "تواصل معنا فوراً عبر WhatsApp أو البريد الإلكتروني. فريقنا سيحل المشكلة في أسرع وقت ممكن.",
     },
+    {
+      question: "هل يمكن إلغاء الاشتراك في أي وقت؟",
+      answer:
+        "نعم، يمكنك إلغاء الاشتراك في أي وقت بدون رسوم إضافية. لا توجد عقود طويلة الأجل.",
+    },
+    {
+      question: "هل هناك ضمان على الخدمة؟",
+      answer:
+        "نعم! نقدم ضمان استرجاع المال 30 يوم إذا لم تكن راضياً عن الخدمة. لا توجد أسئلة.",
+    },
   ];
 
   return (
@@ -80,6 +90,17 @@ export function FAQSection() {
               )}
             </div>
           ))}
+        </div>
+
+        {/* FAQ CTA */}
+        <div className="mt-16 pt-12 border-t-2 border-primary/30 text-center bg-secondary/30 rounded-xl p-8">
+          <h3 className="text-2xl font-bold text-primary mb-4">لم تجد إجابتك؟</h3>
+          <p className="text-muted-foreground mb-6 text-lg">فريقنا متاح 24/7 للإجابة على جميع استفساراتك</p>
+          <a href="https://wa.me/966592360612?text=السلام عليكم، لدي سؤال" target="_blank" rel="noopener noreferrer" className="inline-block">
+            <button className="bg-green-600 text-white hover:bg-green-700 px-8 py-3 rounded-lg font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-green-600/50">
+              تواصل معنا الآن 💬
+            </button>
+          </a>
         </div>
       </div>
     </section>
