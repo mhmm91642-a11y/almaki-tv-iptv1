@@ -7,6 +7,7 @@ import { GlobalFooter } from "@/components/GlobalFooter";
 import { packages, Package } from "@/data/packages";
 import { useCurrency } from "@/hooks/useCurrency";
 import { useLocation } from "wouter";
+import { useEffect, useRef } from "react";
 
 function LinkButton({ href, children }: { href: string; children: React.ReactNode }) {
   const [, setLocation] = useLocation();
@@ -18,6 +19,31 @@ function LinkButton({ href, children }: { href: string; children: React.ReactNod
       {children}
     </button>
   );
+}
+
+// Intersection Observer Hook for Fade In Animation
+function useFadeInOnScroll() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fade-in-visible");
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return ref;
 }
 
 export default function Home() {
@@ -35,6 +61,11 @@ export default function Home() {
   const whatsappNumber = "966592360612";
   const message = "السلام عليكم، أنا مهتم بخدمات ALMAKI";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  // Fade in refs for different sections
+  const packagesRef = useFadeInOnScroll();
+  const linksRef = useFadeInOnScroll();
+  const whyChooseRef = useFadeInOnScroll();
 
   return (
     <div className="min-h-screen bg-background text-foreground" dir="rtl">
@@ -61,34 +92,69 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="hero-smoke-animation py-16 border-b-2 border-primary">
-        <div className="max-w-6xl mx-auto px-4 text-center space-y-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary">
+      {/* Hero Section - Enhanced */}
+      <section className="hero-smoke-animation py-24 md:py-32 border-b-2 border-primary">
+        <div className="max-w-6xl mx-auto px-4 text-center space-y-8">
+          {/* Main Title - Larger */}
+          <h2 className="text-5xl md:text-7xl font-black text-primary leading-tight">
             ارتق إلى قمة تجربة المشاهدة
           </h2>
-          <p className="text-xl text-foreground max-w-2xl mx-auto">
+
+          {/* Subtitle - Clearer */}
+          <p className="text-2xl md:text-3xl text-foreground font-semibold max-w-3xl mx-auto">
             مع ALMAKI TV - أفضل اشتراكات IPTV في السعودية والخليج
           </p>
+
+          {/* Features Grid - 4 Features Below Title */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto py-6">
+            <div className="bg-black/40 backdrop-blur-sm border border-primary/30 rounded-lg p-4">
+              <div className="text-primary text-2xl mb-2">✔</div>
+              <p className="text-sm md:text-base text-foreground font-semibold">
+                أكثر من 15000 قناة
+              </p>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm border border-primary/30 rounded-lg p-4">
+              <div className="text-primary text-2xl mb-2">✔</div>
+              <p className="text-sm md:text-base text-foreground font-semibold">
+                جودة حتى 4K
+              </p>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm border border-primary/30 rounded-lg p-4">
+              <div className="text-primary text-2xl mb-2">✔</div>
+              <p className="text-sm md:text-base text-foreground font-semibold">
+                دعم فني 24/7
+              </p>
+            </div>
+            <div className="bg-black/40 backdrop-blur-sm border border-primary/30 rounded-lg p-4">
+              <div className="text-primary text-2xl mb-2">✔</div>
+              <p className="text-sm md:text-base text-foreground font-semibold">
+                تفعيل خلال دقائق
+              </p>
+            </div>
+          </div>
+
+          {/* Secondary Description */}
           <p className="text-lg text-muted-foreground">
             بث مباشر بدون تقطيع | جودة 4K | أحدث الأفلام والمسلسلات
           </p>
-          <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-lg font-bold">
+
+          {/* CTA Button - Enhanced */}
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-block">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-8 text-xl font-bold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl hover:shadow-primary/50">
               تواصل معنا الآن
             </Button>
           </a>
         </div>
       </section>
 
-      {/* Packages Section */}
-      <section className="py-16 bg-background">
+      {/* Packages Section - With Fade In */}
+      <section ref={packagesRef} className="fade-in py-24 bg-background">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-primary text-center mb-12">
+          <h2 className="text-4xl font-bold text-primary text-center mb-16">
             الأكثر اعتماداً في متجرنا
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {packages.map((pkg) => (
               <PackageCard
                 key={pkg.id}
@@ -100,19 +166,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Links of Interest Section */}
-      <section className="py-16 bg-secondary border-y-2 border-primary">
+      {/* Links of Interest Section - With Fade In */}
+      <section ref={linksRef} className="fade-in py-24 bg-secondary border-y-2 border-primary">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-primary text-center mb-12">
+          <h2 className="text-4xl font-bold text-primary text-center mb-16">
             روابط تهمك
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Google TV / Android */}
             <LinkButton href="/activation-android">
-              <div className="bg-card border-2 border-primary rounded-xl p-6 text-center h-full flex flex-col justify-between">
+              <div className="bg-card border-2 border-primary rounded-xl p-8 text-center h-full flex flex-col justify-between hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:scale-105">
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">
+                  <h3 className="text-2xl font-bold text-foreground mb-4">
                     طريقة التفعيل للشاشات
                   </h3>
                   <p className="text-muted-foreground mb-4">
@@ -127,9 +193,9 @@ export default function Home() {
 
             {/* iOS / Apple TV */}
             <LinkButton href="/activation-ios">
-              <div className="bg-card border-2 border-primary rounded-xl p-6 text-center h-full flex flex-col justify-between">
+              <div className="bg-card border-2 border-primary rounded-xl p-8 text-center h-full flex flex-col justify-between hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:scale-105">
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">
+                  <h3 className="text-2xl font-bold text-foreground mb-4">
                     طريقة التفعيل للآيفون
                   </h3>
                   <p className="text-muted-foreground mb-4">
@@ -144,9 +210,9 @@ export default function Home() {
 
             {/* Samsung & LG */}
             <LinkButton href="/activation-samsung-lg">
-              <div className="bg-card border-2 border-primary rounded-xl p-6 text-center h-full flex flex-col justify-between">
+              <div className="bg-card border-2 border-primary rounded-xl p-8 text-center h-full flex flex-col justify-between hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:scale-105">
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">
+                  <h3 className="text-2xl font-bold text-foreground mb-4">
                     طريقة التفعيل للشاشات الذكية
                   </h3>
                   <p className="text-muted-foreground mb-4">
@@ -162,17 +228,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-16 bg-background">
+      {/* Why Choose Us Section - With Fade In */}
+      <section ref={whyChooseRef} className="fade-in py-24 bg-background">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-primary text-center mb-12">
+          <h2 className="text-4xl font-bold text-primary text-center mb-16">
             لماذا تختار ALMAKI TV؟
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-card border border-border rounded-xl p-6 text-center">
-              <div className="text-4xl mb-4">⚡</div>
-              <h3 className="text-xl font-bold text-foreground mb-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-card border border-border rounded-xl p-8 text-center hover:border-primary transition-all duration-300">
+              <div className="text-5xl mb-6">⚡</div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
                 سرعة هائلة
               </h3>
               <p className="text-muted-foreground">
@@ -180,9 +246,9 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-card border border-border rounded-xl p-6 text-center">
-              <div className="text-4xl mb-4">⭐</div>
-              <h3 className="text-xl font-bold text-foreground mb-2">
+            <div className="bg-card border border-border rounded-xl p-8 text-center hover:border-primary transition-all duration-300">
+              <div className="text-5xl mb-6">⭐</div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
                 جودة فائقة
               </h3>
               <p className="text-muted-foreground">
@@ -190,9 +256,9 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-card border border-border rounded-xl p-6 text-center">
-              <div className="text-4xl mb-4">🎧</div>
-              <h3 className="text-xl font-bold text-foreground mb-2">
+            <div className="bg-card border border-border rounded-xl p-8 text-center hover:border-primary transition-all duration-300">
+              <div className="text-5xl mb-6">🎧</div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
                 دعم 24/7
               </h3>
               <p className="text-muted-foreground">
