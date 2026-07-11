@@ -4,6 +4,10 @@ import { PackageCard } from "@/components/PackageCard";
 import { ProductDetailDrawer } from "@/components/ProductDetailDrawer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { GlobalFooter } from "@/components/GlobalFooter";
+import { TrustSection } from "@/components/TrustSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { FAQSection } from "@/components/FAQSection";
+import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 import { packages, Package } from "@/data/packages";
 import { useCurrency } from "@/hooks/useCurrency";
 import { useLocation } from "wouter";
@@ -269,6 +273,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trust Section */}
+      <TrustSection />
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+
+      {/* FAQ Section */}
+      <FAQSection />
+
       {/* Product Detail Drawer */}
       <ProductDetailDrawer
         open={drawerOpen}
@@ -276,6 +289,9 @@ export default function Home() {
         pkg={selectedPackage}
         duration={selectedDuration}
       />
+
+      {/* Scroll to Top Button */}
+      <ScrollToTopButton />
 
       {/* Floating WhatsApp Button */}
       <FloatingWhatsApp />
