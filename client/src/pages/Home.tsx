@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { PackageCard } from "@/components/PackageCard";
+import { PackagesAccordion } from "@/components/PackagesAccordion";
 import { ProductDetailDrawer } from "@/components/ProductDetailDrawer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { GlobalFooter } from "@/components/GlobalFooter";
@@ -151,22 +152,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Packages Section - With Fade In */}
+      {/* Packages Section - Accordion View - With Fade In */}
       <section ref={packagesRef} className="fade-in py-24 bg-background">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-primary text-center mb-16">
             الأكثر اعتماداً في متجرنا
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {packages.map((pkg) => (
-              <PackageCard
-                key={pkg.id}
-                pkg={pkg}
-                onSelectPlan={handleSelectPlan}
-              />
-            ))}
-          </div>
+          {/* Accordion View */}
+          <PackagesAccordion
+            packages={packages}
+            onSelectPlan={handleSelectPlan}
+          />
         </div>
       </section>
 
