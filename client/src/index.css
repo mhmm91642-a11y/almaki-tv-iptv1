@@ -570,17 +570,17 @@ select {
 /* Custom WhatsApp Button Animations */
 @keyframes customWhatsappPulse {
   0%, 100% {
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35), 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
   }
   50% {
-    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.45), 0 6px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
   }
 }
 
 @keyframes customWhatsappFadeIn {
   from {
     opacity: 0;
-    transform: translateY(30px) scale(0.7);
+    transform: translateY(20px) scale(0.8);
   }
   to {
     opacity: 1;
@@ -589,7 +589,7 @@ select {
 }
 
 .whatsapp-button-custom {
-  animation: customWhatsappFadeIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: customWhatsappFadeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .whatsapp-button-pulse {

@@ -41,11 +41,11 @@ export function PackagesAccordion({
                 />
               )}
               <div className="flex-1 min-w-0 text-right">
-                <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-foreground">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-foreground line-clamp-1">
                   {pkg.name}
                 </h3>
                 {pkg.subtitle && (
-                  <p className="text-sm md:text-base text-muted-foreground mt-2">
+                  <p className="text-sm md:text-base text-muted-foreground mt-1 line-clamp-1">
                     {pkg.subtitle}
                   </p>
                 )}
@@ -53,8 +53,8 @@ export function PackagesAccordion({
             </div>
 
             {/* Price Preview + Chevron */}
-            <div className="flex items-center gap-4 md:gap-6 flex-shrink-0">
-              <div className="text-right hidden sm:block">
+            <div className="flex items-center gap-3 md:gap-4 lg:gap-6 flex-shrink-0 ml-4">
+              <div className="text-right hidden sm:block whitespace-nowrap">
                 <p className="text-xs md:text-sm text-muted-foreground">من</p>
                 <p className="text-lg md:text-2xl font-bold text-primary">
                   {pkg.prices["3"].toString().split(" ")[0]}
@@ -190,7 +190,7 @@ function PricingOption({
     <div
       className={`bg-card border-2 rounded-lg p-4 md:p-5 lg:p-6 text-center transition-all duration-300 ${
         isBestSeller
-          ? "border-primary ring-2 ring-primary/30 scale-105 md:scale-105"
+          ? "border-primary ring-2 ring-primary/30 scale-103 md:scale-103 shadow-lg shadow-primary/30"
           : "border-primary/50 hover:border-primary"
       }`}
     >
