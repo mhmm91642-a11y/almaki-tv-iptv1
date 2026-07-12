@@ -42,7 +42,7 @@ export function ScrollToTopButton() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 left-8 z-30 bg-primary text-primary-foreground p-4 rounded-full hover:bg-primary/90 transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-primary/50 animate-in fade-in slide-in-from-bottom-4 duration-300 gpu-accelerated will-change-transform"
+          className="fixed bottom-8 right-8 z-30 bg-primary text-primary-foreground p-4 rounded-full hover:bg-primary/90 transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg hover:shadow-primary/50 animate-in fade-in slide-in-from-bottom-4 duration-300 gpu-accelerated will-change-transform"
           aria-label="العودة للأعلى"
         >
           <ChevronUp size={24} />
