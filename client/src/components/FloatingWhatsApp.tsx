@@ -22,16 +22,16 @@ export function FloatingWhatsApp() {
       rel="noopener noreferrer"
       className="fixed bottom-6 left-6 z-50 whatsapp-button-custom whatsapp-button-pulse"
       style={{
-        width: "58px",
-        height: "58px",
+        width: "70px",
+        height: "70px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#25D366",
-        borderRadius: "50%",
-        boxShadow: "0 4px 15px rgba(37, 211, 102, 0.25)",
+        borderRadius: "8px",
+        boxShadow: "0 8px 24px rgba(37, 211, 102, 0.35), 0 4px 12px rgba(0, 0, 0, 0.15)",
         transition: "all 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
-        transform: isHovered ? "scale(1.05)" : "scale(1)",
+        transform: isHovered ? "scale(1.08) translateY(-4px)" : "scale(1)",
         cursor: "pointer",
         textDecoration: "none",
       }}
@@ -41,10 +41,10 @@ export function FloatingWhatsApp() {
       onTouchEnd={() => setIsHovered(false)}
       aria-label="تواصل معنا عبر الواتساب"
     >
-      {/* Custom WhatsApp Icon - SVG */}
+      {/* WhatsApp Phone Icon - SVG */}
       <svg
-        width="28"
-        height="28"
+        width="36"
+        height="36"
         viewBox="0 0 24 24"
         fill="white"
         xmlns="http://www.w3.org/2000/svg"
